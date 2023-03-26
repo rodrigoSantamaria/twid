@@ -1,0 +1,1421 @@
+openapi: 3.0.0
+
+servers:
+  - description: Local server
+    url: http://localhost:8000
+  - description: Local server 2
+    url: http://localhost:4000
+
+info:
+  description: TWID-SOA API for the resources service.
+  version: "1.0.0"
+  title: TWID-SOA-API-resources
+  contact:
+    email: javiervidrua@gmail.com
+  license:
+    name: MIT
+    url: 'https://jvr.mit-license.org/'
+tags:
+  - name: Game
+    description: Everything related to the game
+  - name: Board
+    description: Everything related to the board
+  - name: Cards
+    description: Everything related to the cards
+
+paths:
+  /game:
+    get:
+      tags:
+        - Game
+      summary: Get the games
+      description: Get the games
+      responses:
+        '200':
+          description: Games
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/game'
+    post:
+      tags:
+        - Game
+      summary: Create a new game (with a board and the cards)
+      description: Create a new game (with a board and the cards)
+      responses:
+        '200':
+          description: Game created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/game'
+  /game/{game}:
+    delete:
+      tags:
+        - Game
+      summary: Delete the specified game
+      description: Delete the specified game
+      parameters:
+        - in: path # can also be "query", "header" or "cookie"
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Game removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/game'
+  /game/{game}/board:
+    get:
+      tags:
+        - Board
+      summary: Get the resources of the board
+      description: Get the resources of the board
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Board resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board'
+  /game/{game}/board/round:
+    get:
+      tags:
+        - Board
+      summary: Get the round
+      description: Get the round
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Round number
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-round'
+    post:
+      tags:
+        - Board
+      summary: Create a new round (increment the current round number)
+      description: Create a new round (increment the current round number)
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Round created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-round'
+        '400':
+          description: Cannot create any more rounds
+    delete:
+      tags:
+        - Board
+      summary: Reset the round to round 1
+      description: Reset the round to round 1
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Round reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-round'
+  /game/{game}/board/score:
+    get:
+      tags:
+        - Board
+      summary: Get the score of the players
+      description: Get the score of the players
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Score of the players
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/board-score'
+  /game/{game}/board/score/{player}:
+    get:
+      tags:
+        - Board
+      summary: Get the score of the specified player
+      description: Get the score of the specified player
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path # can also be query, header, cookie
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+            example: US
+      responses:
+        '200':
+          description: Score of the specified player
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-score-player'
+    put:
+      tags:
+        - Board
+      summary: Update the score of the specified player
+      description: Update the score of the specified player
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+            example: US
+      responses:
+        '200':
+          description: Score updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-score-player'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/board-score-player'
+        description: New score of the specified player
+    delete:
+      tags:
+        - Board
+      summary: Reset the score of a player to score 0
+      description: Reset the score of a player to score 0
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+            example: US
+      responses:
+        '200':
+          description: Score reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-score-player'
+  /game/{game}/board/map:
+    get:
+      tags:
+        - Board
+      summary: Get the regions of the map
+      description: Get the regions of the map
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Regions of the map
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/board-map'
+  /game/{game}/board/map/{region}:
+    get:
+      tags:
+        - Board
+      summary: Get the countries of the specified region
+      description: Get the countries of the specified region
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: region
+          description: Name of the region
+          required: true
+          schema:
+            type: string
+            example: Africa
+      responses:
+        '200':
+          description: Countries of the specified region
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/board-map-region-country'
+    put:
+      tags:
+        - Board
+      summary: Update the countries of the specified region
+      description: Update the countries of the specified region
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: region
+          description: Name of the region
+          required: true
+          schema:
+            type: string
+            example: Africa
+      responses:
+        '200':
+          description: Countries of the specified region updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/board-map-region-country'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/board-map-region-country'
+        description: New countries of the specified region
+  /game/{game}/board/map/{region}/{country}:
+    get:
+      tags:
+        - Board
+      summary: Get the specified country of the specified region
+      description: Get the specified country of the specified region
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: region
+          description: Name of the region
+          required: true
+          schema:
+            type: string
+            example: Africa
+        - in: path
+          name: country
+          description: Name of the country
+          required: true
+          schema:
+            type: string
+            example: Congo
+      responses:
+        '200':
+          description: Specified country of the specified region
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-map-region-country-country'
+    put:
+      tags:
+        - Board
+      summary: Update the specified country of the specified region
+      description: Update the specified country of the specified region
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: region
+          description: Name of the region
+          required: true
+          schema:
+            type: string
+            example: Africa
+        - in: path
+          name: country
+          description: Name of the country
+          required: true
+          schema:
+            type: string
+            example: Congo
+      responses:
+        '200':
+          description: Specified country of the specified region updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-map-region-country-country'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/board-map-region-country-country'
+        description: New attributes of the specified country of the specified region
+  /game/{game}/board/nwo:
+    get:
+      tags:
+        - Board
+      summary: Get the New World Order tracks
+      description: Get the New World Order tracks
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: New World Order tracks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-nwo'
+  /game/{game}/board/nwo/{track}:
+    get:
+      tags:
+        - Board
+      summary: Get the slots of the specified track
+      description: Get the slots of the specified track
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: track
+          description: Name of the track
+          required: true
+          schema:
+            type: string
+            example: Public opinion
+      responses:
+        '200':
+          description: Slots of the specified track
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-nwo-track'
+  /game/{game}/board/nwo/{track}/{slot}:
+    get:
+      tags:
+        - Board
+      summary: Get the state of the specified slot of the specified track
+      description: Get the state of the specified slot of the specified track
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: track
+          description: Name of the track
+          required: true
+          schema:
+            type: string
+            example: Public opinion
+        - in: path
+          name: slot
+          description: Name of the slot
+          required: true
+          schema:
+            type: string
+            example: State propaganda
+      responses:
+        '200':
+          description: State of the specified slot of the specified track
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-nwo-track-slot'
+    put:
+      tags:
+        - Board
+      summary: Update the state of the specified slot of the specified track
+      description: Update the state of the specified slot of the specified track
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: track
+          description: Name of the track
+          required: true
+          schema:
+            type: string
+            example: Public opinion
+        - in: path
+          name: slot
+          description: Name of the slot
+          required: true
+          schema:
+            type: string
+            example: State propaganda
+      responses:
+        '200':
+          description: State of the specified slot of the specified track updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-nwo-track-slot'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/board-nwo-track-slot'
+        description: New state of the specified slot of the specified track
+    delete:
+      tags:
+        - Board
+      summary: Reset the state of the specified slot of the specified track
+      description: Reset the state of the specified slot of the specified track
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: track
+          description: Name of the track
+          required: true
+          schema:
+            type: string
+            example: Public opinion
+        - in: path
+          name: slot
+          description: Name of the slot
+          required: true
+          schema:
+            type: string
+            example: State propaganda
+      responses:
+        '200':
+          description: State of the specified slot of the specified track reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/board-nwo-track-slot'
+  /game/{game}/cards:
+    get:
+      tags:
+        - Cards
+      summary: Get the resources of the cards
+      description: Get the resources of the cards
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Cards resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/card'
+  /game/{game}/cards/{id}:
+    get:
+      tags:
+        - Cards
+      summary: Get the details of the card with the specified id
+      description: Get the details of the card with the specified id
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 3
+      responses:
+        '200':
+          description: Card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+  /game/{game}/cards/deck:
+    get:
+      tags:
+        - Cards
+      summary: Get the decks of cards
+      description: Get the decks of cards
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Decks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-deck'
+  /game/{game}/cards/deck/{type}:
+    get:
+      tags:
+        - Cards
+      summary: Get the cards of the specified deck
+      description: Get the cards of the specified deck
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: type
+          description: Type of the deck
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: random
+          description: Specify if return the cards in random order
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cards'
+  /game/{game}/cards/deck/{type}/{id}:
+    post:
+      tags:
+        - Cards
+      summary: Add the specified card to the specified deck
+      description: Add the specified card to the specified deck
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: type
+          description: Type of the deck
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Card added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+    delete:
+      tags:
+        - Cards
+      summary: Remove the specified card from the specified deck
+      description: Remove the specified card from the specified deck
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: type
+          description: Type of the deck
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Card removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+  /game/{game}/cards/playing:
+    get:
+      tags:
+        - Cards
+      summary: Get the cards that are currently being played
+      description: Get the cards that are currently being played
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+      responses:
+        '200':
+          description: Cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cards'
+  /game/{game}/cards/playing/{id}:
+    post:
+      tags:
+        - Cards
+      summary: Add the specified card to the cards that are currently being played
+      description: Add the specified card to the cards that are currently being played
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cards'
+    delete:
+      tags:
+        - Cards
+      summary: Remove the specified card to the cards that are currently being played
+      description: Remove the specified card to the cards that are currently being played
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cards'
+  /game/{game}/cards/player/{player}:
+    get:
+      tags:
+        - Cards
+      summary: Get the cards of the specified player's hand
+      description: Get the cards of the specified player's hand
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cards
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/cards'
+  /game/{game}/cards/player/{player}/{id}:
+    post:
+      tags:
+        - Cards
+      summary: Add the specified card to the specified player's hand
+      description: Add the specified card to the specified player's hand
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Card added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+        '400':
+          description: Cannot add any more cards
+    delete:
+      tags:
+        - Cards
+      summary: Remove the specified card from the specified player's hand
+      description: Remove the specified card from the specified player's hand
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Card removed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+        '400':
+          description: Cannot remove any more cards
+  /game/{game}/cards/player/{player}/header:
+    get:
+      tags:
+        - Cards
+      summary: Get the card that is being played as header card
+      description: Get the card that is being played as header card
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards'
+    delete:
+      tags:
+        - Cards
+      summary: Unset the specified card as the one being played as header card
+      description: Unset the specified card as the one being played as header card
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Card unset as header card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+  /game/{game}/cards/player/{player}/header/{id}:
+    post:
+      tags:
+        - Cards
+      summary: Set the specified card as the one being played as header card
+      description: Set the specified card as the one being played as header card
+      parameters:
+        - in: path
+          name: game
+          description: Id of the game
+          required: true
+          schema:
+            type: string
+            example: zq7d24gr9n
+        - in: path
+          name: player
+          description: Name of the player
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: id
+          description: Id of the card
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+            maximum: 100
+            example: 23
+      responses:
+        '200':
+          description: Card set as header card
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cards-id'
+        '400':
+          description: Cannot add the specified card
+
+components:
+  schemas:
+    game:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          minLength: 10
+          maxLength: 10
+          example: zq7d24gr9n
+    board:
+      type: object
+      required:
+        - regions
+        - regionScoring
+        - countries
+        - nwo
+      properties:
+        regions:
+          type: array
+          items:
+            type: object
+            required:
+              - region
+            properties:
+              region:
+                type: string
+          example: ["Europe", "Asia", "Africa", "Middle East", "South America", "NC Amertica"]
+        regionScoring:
+          type: object
+          example: {"regionScoring":{"North-Central America":{"presence":0,"domination":1,"control":3},"South America":{"presence":0,"domination":1,"control":2},"Europe":{"presence":2,"domination":2,"control":3},"Africa":{"presence":1,"domination":1,"control":2},"Middle East":{"presence":2,"domination":2,"control":2},"Asia":{"presence":1,"domination":2,"control":2}}}
+        countries:
+          type: array
+          items:
+            type: object
+            required:
+              - name
+              - region
+              - stability
+              - isConflictive
+              - isOilProducer
+              - influence
+            properties:
+              name:
+                type: string
+              region:
+                type: string
+              stability:
+                type: integer
+                format: int32
+                minimum: 1
+                maximum: 5
+                example: 2
+              isConflictive:
+                type: boolean
+                example: true
+              isOilProducer:
+                type: boolean
+                example: true
+              influence:
+                type: object
+                required:
+                  - $player
+                properties:
+                  $player:
+                    type: object
+                    required:
+                      - influence
+                    properties:
+                      influence:
+                        type: integer
+                        format: int32
+                        minimum: 0
+                        maximum: 100
+                        example: 1
+                      extra:
+                        type: object
+                        properties:
+                          $player:
+                            type: integer
+                            format: int32
+                            minimum: 0
+                            maximum: 100
+                            example: 1
+            example: {"name": "Congo", "region": "Africa", "stability": 2, "isConflictive": true, "isOilProducer": true, "influence": {"US": {"influence": 2, "extra": {"China": 1}}}}
+        nwo:
+          type: object
+          required:
+            - track
+          properties:
+            track:
+              type: object
+              required:
+                - slot
+              properties:
+                slot:
+                  type: object
+                  required:
+                    - veto
+                    - ahead
+                    - supremacy
+                    - description
+                  properties:
+                    veto:
+                      type: string
+                      example: ''
+                    ahead:
+                      type: string
+                      example: US
+                    supremacy:
+                      type: string
+                      example: US
+                    description:
+                      type: string
+                      example: Remove supremacy to add 1 influence to an already controlled country (usable before or after any action, yours or from other player, event or operation)
+          example: {"Public opinion": {"State propaganda": {"veto": "", "ahead": "US", "supremacy": "US", "description": "Remove supremacy to add 1 influence to an already controlled country (usable before or after any action, yours or from other player, event or operation)"} } }
+    board-round:
+      type: object
+      required:
+        - round
+      properties:
+        round:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 8
+          example: 1
+    board-score:
+      type: object
+      required:
+        - name
+        - score
+      properties:
+        name:
+          type: string
+          example: US
+        score:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 100
+          example: 4
+    board-score-player:
+      type: object
+      required:
+        - score
+      properties:
+        score:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 100
+          example: 0
+    board-map:
+      type: object
+      required:
+        - region
+      properties:
+        region:
+          type: string
+          example: Middle east
+    board-map-region-country:
+      type: object
+      required:
+        - country
+      properties:
+        country:
+          type: string
+          example: Congo
+    board-map-region-country-country:
+      type: object
+      required:
+        - stability
+        - isConflictive
+        - isOilProducer
+        - influence
+        - adjacent
+      properties:
+        stability:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 5
+          example: 2
+        isConflictive:
+          type: boolean
+          example: true
+        isOilProducer:
+          type: boolean
+          example: true
+        influence:
+          type: object
+          required:
+            - $player
+          properties:
+            $player:
+              type: object
+              required:
+                - influence
+              properties:
+                influence:
+                  type: integer
+                  format: int32
+                  minimum: 0
+                  maximum: 100
+                  example: 1
+                extra:
+                  type: object
+                  properties:
+                    $player:
+                      type: integer
+                      format: int32
+                      minimum: 0
+                      maximum: 100
+                      example: 1
+        adjacent:
+          type: array
+          items:
+            type: string
+      example: {"stability": 2, "isConflictive": true, "isOilProducer": true, "influence": {"US": {"influence": 2, "extra": {"China": 1}}}, "adjacent": ["India"]}
+    board-nwo:
+      type: array
+      items:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+      example: [{'name': 'Economy'}, {'name': 'Public opinion'}, {'name': 'Technology'}]
+    board-nwo-track:
+      type: array
+      items:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+      example: [{'name': 'State propaganda'}, {'name': 'Mass media'}, {'name': 'Information leaks'}]
+    board-nwo-track-slot:
+      type: object
+      required:
+        - veto
+        - ahead
+        - supremacy
+        - description
+      properties:
+        veto:
+          type: string
+          example: ''
+        ahead:
+          type: string
+          example: US
+        supremacy:
+          type: string
+          example: US
+        description:
+          type: string
+          example: Remove supremacy to add 1 influence to an already controlled country (usable before or after any action, yours or from other player, event or operation)
+    card:
+      type: array
+      items:
+        type: object
+        required:
+          - name
+        properties:
+          name:
+            type: string
+      example: [{'name': 'deck'}, {'name': 'playing'}, {'name': 'player'}]
+    cards:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+          example: 1
+    cards-id:
+      type: object
+      required:
+        - id
+        - title
+        - epoch # pre/post 9/11
+        - description
+        - points
+        - faction
+        - type
+        - remove
+        - image
+        - background
+      properties:
+        id:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 100
+          example: 3
+        title:
+          type: string
+          example: Black Monday
+        epoch:
+          type: string
+          enum: [Pre, Post]
+          example: Pre
+        year:
+          type: string
+          example: 1987
+        description:
+          type: string
+          example: US and EU lose supremacy on all NWO economy slots.
+        points:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 5
+          example: 2
+        faction:
+          type: string
+          enum: [E, W, E/W]
+          example: E
+        type:
+          type: string
+          example: Economy
+        subtype:
+          type: string
+          example: ''
+        remove:
+          type: boolean
+          example: true
+        image:
+          type: string
+          example: images/blackMonday.jpg
+        background:
+          type: string
+          example: '#DDDDFF'
+        
+    cards-deck:
+      type: array
+      items:
+        type: object
+        required:
+          - type
+        properties:
+          type:
+            type: string
+      example: [{'type': 'main'}, {'type': 'discarded'}, {'type': 'removed'}]

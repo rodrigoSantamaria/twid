@@ -1,0 +1,2 @@
+# https://stackoverflow.com/questions/10175812/how-to-generate-a-self-signed-ssl-certificate-using-openssl
+openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -nodes -keyout key.pem -out cert.pem -subj "/CN=prodiasv30.fis.usal.es" -addext "subjectAltName=DNS:prodiasv30.fis.usal.es,DNS:prodiasv30.fis.usal.es"

@@ -1,0 +1,4 @@
+fastapi==0.79.0
+uvicorn==0.18.2
+pydantic==1.9.1
+shortuuid==1.0.11

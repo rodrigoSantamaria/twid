@@ -1,0 +1,1595 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "Local server",
+      "url": "http://localhost:8001"
+    },
+    {
+      "description": "Local server 2",
+      "url": "http://localhost:4001"
+    },
+    {
+      "description": "Production server",
+      "url": "https://prodiasv30.fis.usal.es:443"
+    },
+    {
+      "description": "Production server local",
+      "url": "https://localhost:443"
+    }
+  ],
+  "info": {
+    "description": "TWID-SOA API for the control service.",
+    "version": "1.0.0",
+    "title": "TWID-SOA-API-control",
+    "contact": {
+      "email": "javiervidrua@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://jvr.mit-license.org/"
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Everything related to the auth"
+    },
+    {
+      "name": "Game",
+      "description": "Everything related to the game"
+    }
+  ],
+  "paths": {
+    "/auth/signin/guest": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Sign in as guest. Session lasts 24 hours.",
+        "description": "Sign in as guest. Session lasts 24 hours.",
+        "responses": {
+          "200": {
+            "description": "Signed in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/auth-signin-guest"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/auth/signout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Sign out",
+        "description": "Sign out",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Signed out",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/auth-signin-guest"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the games",
+        "description": "Get the games",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Games",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/game"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Create a new game",
+        "description": "Create a new game",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Game created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/game"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        }
+      }
+    },
+    "/game/{game}": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the details of a game",
+        "description": "Get the details of a game",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Game details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/game-game"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Start a game. The host of the game must do it",
+        "description": "Start a game. The host of the game must do it",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Game started"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Remove a game",
+        "description": "Remove a game",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Game removed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/game"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/player/{player}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Select the specified player as the user's player in the specified game",
+        "description": "Select the specified player as the user's player in the specified game. The host of the game must choose the first",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "player",
+            "description": "Name of the player",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Player selected"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/board/round": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the round",
+        "description": "Get the round",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Round number",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/game-game-board-round"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/board/score": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the score of the players",
+        "description": "Get the score of the players",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Score of the players",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/game-game-board-score"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/board/map": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the map",
+        "description": "Get the map",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Map resources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/game-game-board-map"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/cards/{id}": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the details of the card with the specified id",
+        "description": "Get the details of the card with the specified id",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/cards/player": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the cards of the players",
+        "description": "Get the cards of the players. A player cannot see the cards of another player's hand, but the player is allowed to see the header cards once all of them are chosen",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Players cards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/game-game-cards-player"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/cards/playing": {
+      "get": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Get the cards that are currently being played",
+        "description": "Get the cards that are currently being played",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Players cards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "format": "int32",
+                    "minimum": 0,
+                    "maximum": 100,
+                    "example": 4
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/game/{game}/cards/playing/influence/{id}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Play the specified card as influence",
+        "description": "Play the specified card as influence",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "validate",
+            "description": "Specify if only validate the play",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/card-playing-influence"
+              }
+            }
+          },
+          "description": "Description of how the card is going to be played"
+        }
+      }
+    },
+    "/game/{game}/cards/playing/destabilization/{id}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Play the specified card as destabilization. This play consists of 2 requests",
+        "description": "Play the specified card as destabilization. This play consists of 2 requests. 1st request will return the result of a dice throw (1 to 6) + card points - the country stability points * 2. If the country is conflictive you lose 1 VP. If result X is positive, you can add (superpowers of your block) or remove (opposing superpowers) up to X points of influence",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/card-playing-destabilization"
+              }
+            }
+          },
+          "description": "Description of how the card is going to be played"
+        }
+      }
+    },
+    "/game/{game}/cards/playing/text/{id}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Play the specified card by its text",
+        "description": "Play the specified card by its text. The request body is only necessary for the cards that need the player to choose something and it is used to specify said choice",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/card-playing-text"
+              }
+            }
+          },
+          "description": "Description of how the card is going to be played"
+        }
+      }
+    },
+    "/game/{game}/cards/playing/score/{id}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Play the specified punctuation card. Score it",
+        "description": "Play the specified punctuation card. Score it",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "validate",
+            "description": "Specify if only validate the play",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/card-playing-score"
+              }
+            }
+          },
+          "description": "Region to score"
+        }
+      }
+    },
+    "/game/{game}/cards/playing/nwo/{id}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Play the specified card in a New World Order track",
+        "description": "Play the specified card in a New World Order track",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          },
+          {
+            "in": "query",
+            "name": "validate",
+            "description": "Specify if only validate the play",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/card-playing-nwo"
+              }
+            }
+          },
+          "description": "Description of how the card is going to be played"
+        }
+      }
+    },
+    "/game/{game}/cards/playing/header/{id}": {
+      "post": {
+        "tags": [
+          "Game"
+        ],
+        "summary": "Set the specified card as the one being played as header card",
+        "description": "Set the specified card as the one being played as header card",
+        "security": [
+          {
+            "X-ACCESS-TOKEN": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "game",
+            "description": "Id of the game",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "zq7d24gr9n"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "description": "Id of the card",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "minimum": 1,
+              "maximum": 100,
+              "example": 3
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/card"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "X-ACCESS-TOKEN": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-ACCESS-TOKEN"
+      }
+    },
+    "schemas": {
+      "auth-signin-guest": {
+        "type": "object",
+        "required": [
+          "access_token",
+          "token_type"
+        ],
+        "properties": {
+          "access_token": {
+            "type": "string",
+            "minLength": 36,
+            "maxLength": 36,
+            "example": "829863b3-3ba3-4357-a819-fa62ee39b426"
+          },
+          "token_type": {
+            "type": "string",
+            "example": "Bearer"
+          }
+        }
+      },
+      "game": {
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 10,
+            "example": "zq7d24gr9n"
+          }
+        }
+      },
+      "game-game": {
+        "type": "object",
+        "required": [
+          "isStarted",
+          "isFinished",
+          "players"
+        ],
+        "properties": {
+          "isStarted": {
+            "type": "boolean",
+            "default": false
+          },
+          "isFinished": {
+            "type": "boolean",
+            "default": false
+          },
+          "isHeaderPhase": {
+            "type": "boolean",
+            "default": false
+          },
+          "playingOrder": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pleayers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "example": {
+          "isStarted": false,
+          "isFinished": false,
+          "isHeaderPhase": false,
+          "playingOrder": [],
+          "players": [
+            "US",
+            "EU",
+            "Russia",
+            "China"
+          ]
+        }
+      },
+      "game-game-board-round": {
+        "type": "object",
+        "required": [
+          "round"
+        ],
+        "properties": {
+          "round": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 8,
+            "example": 1
+          }
+        }
+      },
+      "game-game-board-score": {
+        "type": "object",
+        "required": [
+          "name",
+          "score"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "US"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 0,
+            "maximum": 100,
+            "example": 4
+          }
+        }
+      },
+      "game-game-board-map": {
+        "type": "object",
+        "required": [
+          "regions",
+          "countries",
+          "nwo"
+        ],
+        "properties": {
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "region"
+              ],
+              "properties": {
+                "region": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": [
+              "Europe",
+              "Asia",
+              "Africa",
+              "Middle East",
+              "South America",
+              "NC Amertica"
+            ]
+          },
+          "countries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "region",
+                "stability",
+                "isConflictive",
+                "isOilProducer",
+                "influence"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "region": {
+                  "type": "string"
+                },
+                "stability": {
+                  "type": "integer",
+                  "format": "int32",
+                  "minimum": 1,
+                  "maximum": 5,
+                  "example": 2
+                },
+                "isConflictive": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "isOilProducer": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "influence": {
+                  "type": "object",
+                  "required": [
+                    "$player"
+                  ],
+                  "properties": {
+                    "$player": {
+                      "type": "object",
+                      "required": [
+                        "influence"
+                      ],
+                      "properties": {
+                        "influence": {
+                          "type": "integer",
+                          "format": "int32",
+                          "minimum": 0,
+                          "maximum": 100,
+                          "example": 1
+                        },
+                        "extra": {
+                          "type": "object",
+                          "properties": {
+                            "$player": {
+                              "type": "integer",
+                              "format": "int32",
+                              "minimum": 0,
+                              "maximum": 100,
+                              "example": 1
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "example": {
+                "name": "Congo",
+                "region": "Africa",
+                "stability": 2,
+                "isConflictive": true,
+                "isOilProducer": true,
+                "influence": {
+                  "US": {
+                    "influence": 2,
+                    "extra": {
+                      "China": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "nwo": {
+            "type": "object",
+            "required": [
+              "track"
+            ],
+            "properties": {
+              "track": {
+                "type": "object",
+                "required": [
+                  "slot"
+                ],
+                "properties": {
+                  "slot": {
+                    "type": "object",
+                    "required": [
+                      "veto",
+                      "ahead",
+                      "supremacy",
+                      "description"
+                    ],
+                    "properties": {
+                      "veto": {
+                        "type": "string",
+                        "example": ""
+                      },
+                      "ahead": {
+                        "type": "string",
+                        "example": "US"
+                      },
+                      "supremacy": {
+                        "type": "string",
+                        "example": "US"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "Remove supremacy to add 1 influence to an already controlled country (usable before or after any action, yours or from other player, event or operation)"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "example": {
+              "Public opinion": {
+                "State propaganda": {
+                  "veto": "",
+                  "ahead": "US",
+                  "supremacy": "US",
+                  "description": "Remove supremacy to add 1 influence to an already controlled country (usable before or after any action, yours or from other player, event or operation)"
+                }
+              }
+            }
+          }
+        }
+      },
+      "card": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "epoch",
+          "description",
+          "points",
+          "faction",
+          "type",
+          "remove",
+          "image",
+          "background"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 100,
+            "example": 3
+          },
+          "title": {
+            "type": "string",
+            "example": "Black Monday"
+          },
+          "epoch": {
+            "type": "string",
+            "enum": [
+              "Pre",
+              "Post"
+            ],
+            "example": "Pre"
+          },
+          "year": {
+            "type": "string",
+            "example": 1987
+          },
+          "description": {
+            "type": "string",
+            "example": "US and EU lose supremacy on all NWO economy slots."
+          },
+          "points": {
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1,
+            "maximum": 5,
+            "example": 2
+          },
+          "faction": {
+            "type": "string",
+            "enum": [
+              "E",
+              "W",
+              "E/W"
+            ],
+            "example": "E"
+          },
+          "type": {
+            "type": "string",
+            "example": "Economy"
+          },
+          "subtype": {
+            "type": "string",
+            "example": ""
+          },
+          "remove": {
+            "type": "boolean",
+            "example": true
+          },
+          "image": {
+            "type": "string",
+            "example": "images/blackMonday.jpg"
+          },
+          "background": {
+            "type": "string",
+            "example": "#DDDDFF"
+          }
+        }
+      },
+      "game-game-cards-player": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "object",
+            "required": [
+              "header",
+              "hand"
+            ],
+            "properties": {
+              "header": {
+                "type": "string"
+              },
+              "hand": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "US": {
+            "header": null,
+            "hand": []
+          },
+          "EU": {
+            "header": null,
+            "hand": []
+          },
+          "Russia": {
+            "header": null,
+            "hand": []
+          },
+          "China": {
+            "header": null,
+            "hand": []
+          }
+        }
+      },
+      "card-playing-influence": {
+        "type": "object",
+        "required": [
+          "targets"
+        ],
+        "properties": {
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "target": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "targetExtra": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "targets": [
+            {
+              "target": {
+                "Congo": 1
+              },
+              "targetExtra": {
+                "US": 1
+              }
+            }
+          ]
+        }
+      },
+      "card-playing-destabilization": {
+        "type": "object",
+        "required": [
+          "add",
+          "remove"
+        ],
+        "properties": {
+          "target": {
+            "type": "string"
+          },
+          "add": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "remove": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "target": "Congo",
+          "add": [
+            {
+              "US": 2
+            }
+          ],
+          "remove": [
+            {
+              "China": 1
+            }
+          ]
+        }
+      },
+      "card-playing-score": {
+        "type": "object",
+        "required": [
+          "region"
+        ],
+        "properties": {
+          "region": {
+            "type": "string",
+            "example": "NC America"
+          }
+        }
+      },
+      "card-playing-text": {
+        "type": "object",
+        "properties": {
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "targets": [
+            {
+              "Congo": 1
+            }
+          ]
+        }
+      },
+      "card-playing-nwo": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "State propaganda"
+          }
+        }
+      }
+    }
+  }
+}

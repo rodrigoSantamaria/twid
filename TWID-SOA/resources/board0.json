@@ -1,0 +1,1454 @@
+{
+    "round": 1,
+    "score": [
+        {
+            "name": "US",
+            "score": 0
+        },
+        {
+            "name": "EU",
+            "score": 0
+        },
+        {
+            "name": "Russia",
+            "score": 0
+        },
+        {
+            "name": "China",
+            "score": 0
+        }
+    ],
+    "players": [
+        "US",
+        "EU",
+        "Russia",
+        "China"
+    ],
+    "regions": [
+        "Europe",
+        "Asia",
+        "Africa",
+        "Middle East",
+        "South America",
+        "NC America"
+    ],
+    "regionScoring": {
+        "NC America": {
+            "presence": 0,
+            "domination": 1,
+            "control": 3
+        },
+        "South America": {
+            "presence": 0,
+            "domination": 1,
+            "control": 2
+        },
+        "Europe": {
+            "presence": 2,
+            "domination": 2,
+            "control": 3
+        },
+        "Africa": {
+            "presence": 1,
+            "domination": 1,
+            "control": 2
+        },
+        "Middle East": {
+            "presence": 2,
+            "domination": 2,
+            "control": 2
+        },
+        "Asia": {
+            "presence": 1,
+            "domination": 2,
+            "control": 2
+        }
+    },
+    "countries": [
+        {
+            "name": "United States",
+            "region": "NC America",
+            "stability": 5,
+            "influence": {
+                "US": {
+                    "influence": 2,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Canada",
+                "Mexico",
+                "Cuba",
+                "Japan"
+            ]
+        },
+        {
+            "name": "Canada",
+            "region": "NC America",
+            "stability": 4,
+            "influence": {
+                "US": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "United Kingdom",
+                "United States"
+            ]
+        },
+        {
+            "name": "Mexico",
+            "region": "NC America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "United States",
+                "Guatemala"
+            ]
+        },
+        {
+            "name": "Cuba",
+            "region": "NC America",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "United States",
+                "Haiti",
+                "Nicaragua"
+            ]
+        },
+        {
+            "name": "Guatemala",
+            "region": "NC America",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Mexico",
+                "El Salvador"
+            ]
+        },
+        {
+            "name": "El Salvador",
+            "region": "NC America",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Guatemala",
+                "Honduras"
+            ]
+        },
+        {
+            "name": "Costa Rica",
+            "region": "NC America",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Honduras",
+                "Panama",
+                "Nicaragua"
+            ]
+        },
+        {
+            "name": "Panama",
+            "region": "NC America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Costa Rica",
+                "Colombia"
+            ]
+        },
+        {
+            "name": "Nicaragua",
+            "region": "NC America",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Cuba",
+                "Honduras",
+                "Costa Rica"
+            ]
+        },
+        {
+            "name": "Haiti",
+            "region": "NC America",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Cuba",
+                "Dominican Republic"
+            ]
+        },
+        {
+            "name": "Dominican Republic",
+            "region": "NC America",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Haiti"
+            ]
+        },
+        {
+            "name": "Honduras",
+            "region": "NC America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "Maybe 1",
+            "adjacent": [
+                "El Salvador",
+                "Nicaragua",
+                "Costa Rica"
+            ]
+        },
+        {
+            "name": "Venezuela",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Colombia",
+                "Brazil"
+            ]
+        },
+        {
+            "name": "Colombia",
+            "region": "South America",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Panama",
+                "Venezuela",
+                "Ecuador"
+            ]
+        },
+        {
+            "name": "Ecuador",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Colombia",
+                "Peru"
+            ]
+        },
+        {
+            "name": "Peru",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Ecuador",
+                "Chile",
+                "Bolivia"
+            ]
+        },
+        {
+            "name": "Brazil",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Venezuela",
+                "Uruguay"
+            ]
+        },
+        {
+            "name": "Bolivia",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Peru",
+                "Paraguay"
+            ]
+        },
+        {
+            "name": "Chile",
+            "region": "South America",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "Maybe not conflictive?",
+            "adjacent": [
+                "Peru",
+                "Argentina"
+            ]
+        },
+        {
+            "name": "Paraguay",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Bolivia",
+                "Uruguay",
+                "Argentina"
+            ]
+        },
+        {
+            "name": "Uruguay",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Paraguay",
+                "Brazil",
+                "Argentina"
+            ]
+        },
+        {
+            "name": "Argentina",
+            "region": "South America",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "Maybe not conflictive?",
+            "adjacent": [
+                "Chile",
+                "Paraguay",
+                "Uruguay"
+            ]
+        },
+        {
+            "name": "United Kingdom",
+            "region": "Europe",
+            "stability": 5,
+            "influence": {
+                "US": {
+                    "influence": 1,
+                    "extra": {}
+                },
+                "EU": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Canada",
+                "Norway",
+                "Benelux",
+                "France"
+            ]
+        },
+        {
+            "name": "Norway",
+            "region": "Europe",
+            "stability": 4,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "United Kingdom",
+                "Sweden"
+            ]
+        },
+        {
+            "name": "Denmark",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Sweden",
+                "Germany"
+            ]
+        },
+        {
+            "name": "Sweden",
+            "region": "Europe",
+            "stability": 4,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Norway",
+                "Denmark",
+                "Finland"
+            ]
+        },
+        {
+            "name": "Finland",
+            "region": "Europe",
+            "stability": 4,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Sweden",
+                "Russia"
+            ]
+        },
+        {
+            "name": "Poland",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Germany",
+                "Russia",
+                "Ukraine",
+                "Czech Republic/Slovakia"
+            ]
+        },
+        {
+            "name": "Benelux",
+            "region": "Europe",
+            "stability": 3,
+            "influence":  {
+                "EU": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "United Kingdom",
+                "Germany"
+            ]
+        },
+        {
+            "name": "Germany",
+            "region": "Europe",
+            "stability": 4,
+            "influence":  {
+                "US": {
+                    "influence": 1,
+                    "extra": {}
+                },
+                "EU": {
+                    "influence": 2,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Benelux",
+                "France",
+                "Austria",
+                "Denmark",
+                "Poland",
+                "Czech Republic/Slovakia"
+            ]
+        },
+        {
+            "name": "Czech Republic/Slovakia",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Poland",
+                "Germany",
+                "Hungary"
+            ]
+        },
+        {
+            "name": "Austria",
+            "region": "Europe",
+            "stability": 4,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Germany",
+                "France",
+                "Italy",
+                "Hungary"
+            ]
+        },
+        {
+            "name": "Hungary",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Austria",
+                "Czech Republic/Slovakia",
+                "Romania",
+                "Balkan States"
+            ]
+        },
+        {
+            "name": "Romania",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Hungary",
+                "Balkan States",
+                "Ukraine",
+                "Bulgaria"
+            ]
+        },
+        {
+            "name": "Ukraine",
+            "region": "Europe",
+            "stability": 2,
+            "influence": {
+                "Russia": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Poland",
+                "Romania",
+                "Russia"
+            ]
+        },
+        {
+            "name": "France",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {
+                "EU": {
+                    "influence": 2,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "United Kingdom",
+                "Germany",
+                "Spain/Portugal",
+                "Algeria",
+                "Austria"
+            ]
+        },
+        {
+            "name": "Spain/Portugal",
+            "region": "Europe",
+            "stability": 2,
+            "influence": {
+                "EU": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "France",
+                "Italy",
+                "Morocco"
+            ]
+        },
+        {
+            "name": "Italy",
+            "region": "Europe",
+            "stability": 2,
+            "influence": {
+                "EU": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "Possibly non conflictive",
+            "adjacent": [
+                "Spain/Portugal",
+                "Austria",
+                "Balkan States"
+            ]
+        },
+        {
+            "name": "Balkan States",
+            "region": "Europe",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Italy",
+                "Hungary",
+                "Romania",
+                "Greece"
+            ]
+        },
+        {
+            "name": "Bulgaria",
+            "region": "Europe",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Romania",
+                "Greece",
+                "Turkey"
+            ]
+        },
+        {
+            "name": "Greece",
+            "region": "Europe",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Balkan States",
+                "Bulgaria",
+                "Turkey"
+            ]
+        },
+        {
+            "name": "Russia",
+            "region": "Europe/Asia",
+            "stability": 5,
+            "influence": {
+                "Russia": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Finland",
+                "Poland",
+                "Ukraine",
+                "Caucasus States",
+                "Stan States",
+                "China"
+            ]
+        },
+        {
+            "name": "Morocco",
+            "region": "Africa",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Spain/Portugal",
+                "Algeria",
+                "West Africa States"
+            ]
+        },
+        {
+            "name": "Algeria",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Morocco",
+                "France",
+                "Tunisia",
+                "Sahel States"
+            ]
+        },
+        {
+            "name": "Tunisia",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Algeria",
+                "Libya"
+            ]
+        },
+        {
+            "name": "Libya",
+            "region": "Middle East",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Tunisia",
+                "Egypt"
+            ]
+        },
+        {
+            "name": "Egypt",
+            "region": "Middle East",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Lybia",
+                "Israel",
+                "Sudan"
+            ]
+        },
+        {
+            "name": "West Africa States",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Morocco",
+                "Ivory/Gold Coast"
+            ]
+        },
+        {
+            "name": "Sahel States",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "Possibly conflictive",
+            "adjacent": [
+                "Algeria",
+                "Nigeria"
+            ]
+        },
+        {
+            "name": "Nigeria",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Sahel States",
+                "Ivory/Gold Coast",
+                "Cameroon"
+            ]
+        },
+        {
+            "name": "Ivory/Gold Coast",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "West Africa States",
+                "Nigeria"
+            ]
+        },
+        {
+            "name": "Cameroon",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Nigeria",
+                "Congo"
+            ]
+        },
+        {
+            "name": "Congo",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Cameroon",
+                "Angola",
+                "Zimbabwe"
+            ]
+        },
+        {
+            "name": "Angola",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "Card about peace in post era, to remove conflictive",
+            "adjacent": [
+                "Congo",
+                "South Africa",
+                "Botswana"
+            ]
+        },
+        {
+            "name": "Zimbabwe",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Congo",
+                "Botswana",
+                "South East Africa States"
+            ]
+        },
+        {
+            "name": "Botswana",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Zimbawbe",
+                "Angola",
+                "South Africa"
+            ]
+        },
+        {
+            "name": "South Africa",
+            "region": "Africa",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Angola",
+                "Botswana"
+            ]
+        },
+        {
+            "name": "South East Africa States",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Zimbawbe",
+                "Kenya"
+            ]
+        },
+        {
+            "name": "Kenya",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "South East Africa States",
+                "Somalia"
+            ]
+        },
+        {
+            "name": "Somalia",
+            "region": "Africa",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "Possibly conflictive",
+            "adjacent": [
+                "Kenya",
+                "Ethiopia"
+            ]
+        },
+        {
+            "name": "Ethiopia",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Sudan",
+                "Somalia"
+            ]
+        },
+        {
+            "name": "Sudan",
+            "region": "Africa",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Egypt",
+                "Ethiopia"
+            ]
+        },
+        {
+            "name": "Lebanon",
+            "region": "Middle East",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Syria",
+                "Israel",
+                "Jordan"
+            ]
+        },
+        {
+            "name": "Syria",
+            "region": "Middle East",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Lebanon",
+                "Israel",
+                "Jordan",
+                "Iraq"
+            ]
+        },
+        {
+            "name": "Israel",
+            "region": "Middle East",
+            "stability": 4,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Lebanon",
+                "Syria",
+                "Jordan",
+                "Egypt"
+            ]
+        },
+        {
+            "name": "Iraq",
+            "region": "Middle East",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Syria",
+                "Jordan",
+                "Saudi Arabia",
+                "Gulf States",
+                "Iran"
+            ]
+        },
+        {
+            "name": "Jordan",
+            "region": "Middle East",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Lebanon",
+                "Israel",
+                "Syria",
+                "Iraq"
+            ]
+        },
+        {
+            "name": "Gulf States",
+            "region": "Middle East",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Iraq",
+                "Saudi Arabia"
+            ]
+        },
+        {
+            "name": "Caucasus States",
+            "region": "Middle East",
+            "stability": 2,
+            "influence": {
+                "Russia": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Russia",
+                "Turkey"
+            ]
+        },
+        {
+            "name": "Saudi Arabia",
+            "region": "Middle East",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Iraq",
+                "Gulf States"
+            ]
+        },
+        {
+            "name": "Turkey",
+            "region": "Europe/Middle East",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Bulgaria",
+                "Greece",
+                "Caucasus States",
+                "Syria"
+            ]
+        },
+        {
+            "name": "Iran",
+            "region": "Middle East",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": true,
+            "comments": "",
+            "adjacent": [
+                "Iraq",
+                "Stat States",
+                "Afghanistan",
+                "Pakistan"
+            ]
+        },
+        {
+            "name": "Stan States",
+            "region": "Asia",
+            "stability": 3,
+            "influence": {
+                "Russia": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Iran",
+                "Afghanistan",
+                "Russia"
+            ]
+        },
+        {
+            "name": "Afghanistan",
+            "region": "Asia",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "Possibly conflictive",
+            "adjacent": [
+                "Stan States",
+                "Iran",
+                "Pakistan",
+                "China"
+            ]
+        },
+        {
+            "name": "Pakistan",
+            "region": "Asia",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Afghanistan",
+                "Iran",
+                "India",
+                "China"
+            ]
+        },
+        {
+            "name": "India",
+            "region": "Asia",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Pakistan",
+                "China",
+                "Myanmar"
+            ]
+        },
+        {
+            "name": "Myanmar",
+            "region": "Asia",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "India",
+                "China",
+                "Laos/Cambodia"
+            ]
+        },
+        {
+            "name": "China",
+            "region": "Asia",
+            "stability": 5,
+            "influence": {
+                "China": {
+                    "influence": 2,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": true,
+            "comments": "Not oil per se, but coal and raw and manufactured materials producer",
+            "adjacent": [
+                "Afghanistan",
+                "Pakistan",
+                "India",
+                "Myanmar",
+                "Laos/Cambodia",
+                "Taiwan",
+                "North Korea",
+                "Russia"
+            ]
+        },
+        {
+            "name": "Laos/Cambodia",
+            "region": "Asia",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Myanmar",
+                "China",
+                "Vietnam",
+                "Thailand"
+            ]
+        },
+        {
+            "name": "Thailand",
+            "region": "Asia",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "Possibly non conflictive",
+            "adjacent": [
+                "Laos/Cambodia",
+                "Vietnam",
+                "Malaysia"
+            ]
+        },
+        {
+            "name": "Vietnam",
+            "region": "Asia",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Laos/Cambodia",
+                "Thailand"
+            ]
+        },
+        {
+            "name": "Malaysia",
+            "region": "Asia",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Thailand",
+                "Indonesia",
+                "Australia"
+            ]
+        },
+        {
+            "name": "Indonesia",
+            "region": "Asia",
+            "stability": 1,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Malaysia",
+                "Philippines"
+            ]
+        },
+        {
+            "name": "Australia",
+            "region": "Asia",
+            "stability": 4,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Malaysia"
+            ]
+        },
+        {
+            "name": "Philippines",
+            "region": "Asia",
+            "stability": 2,
+            "influence": {},
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "Indonesia",
+                "Japan"
+            ]
+        },
+        {
+            "name": "Taiwan",
+            "region": "Asia",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "China",
+                "South Korea",
+                "Japan"
+            ]
+        },
+        {
+            "name": "Japan",
+            "region": "Asia",
+            "stability": 4,
+            "influence": {
+                "US": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": false,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "South Korea",
+                "Taiwan",
+                "United States",
+                "Philippines"
+            ]
+        },
+        {
+            "name": "South Korea",
+            "region": "Asia",
+            "stability": 3,
+            "influence": {},
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "North Korea",
+                "Japan",
+                "Taiwan"
+            ]
+        },
+        {
+            "name": "North Korea",
+            "region": "Asia",
+            "stability": 3,
+            "influence": {
+                "China": {
+                    "influence": 1,
+                    "extra": {}
+                }
+            },
+            "isConflictive": true,
+            "isOilProducer": false,
+            "comments": "",
+            "adjacent": [
+                "China",
+                "South Korea"
+            ]
+        }
+    ],
+    "nwo": {
+        "Economy": {
+            "Financial markets": {
+                "veto": "",
+                "ahead": "west",
+                "supremacy": "",
+                "description": "You get +1 on all economy ops"
+            },
+            "Fiscal paradises": {
+                "veto": "",
+                "ahead": "",
+                "supremacy": "",
+                "description": "You may cancel the text of any economy card as it is played for the event or for operations of the opposite block"
+            },
+            "Sovereign funds": {
+                "veto": "",
+                "ahead": "east",
+                "supremacy": "",
+                "description": "You may remove this supremacy to give +2 points to an economy card used for an influence operation"
+            }
+        },
+        "Public opinion": {
+            "State propaganda": {
+                "veto": "EU",
+                "ahead": "",
+                "supremacy": "",
+                "description": "Remove supremacy to add 1 influence to an already controlled country (usable before or after any action, yours or from other player, event or operation)"
+            },
+            "Mass media": {
+                "veto": "",
+                "ahead": "US",
+                "supremacy": "",
+                "description": "You get +1 on all influence ops"
+            },
+            "Information leaks": {
+                "veto": "US",
+                "ahead": "",
+                "supremacy": "",
+                "description": "Remove supremacy to reduce by 2 the op value of an opponent card used to influence"
+            }
+        },
+        "Technology": {
+            "Communications": {
+                "veto": "",
+                "ahead": "",
+                "supremacy": "",
+                "description": "You get +1 on all military card ops"
+            },
+            "Global positioning": {
+                "veto": "",
+                "ahead": "US",
+                "supremacy": "",
+                "description": "Remove supremacy to cancel a personality card text as its text is about to resolve, or to discard a personality in play"
+            },
+            "Drones": {
+                "veto": "",
+                "ahead": "US",
+                "supremacy": "",
+                "description": "You lose 1 less VP on destabilization ops"
+            }
+        }
+    }
+}
