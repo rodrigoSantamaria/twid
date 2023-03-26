@@ -13,14 +13,14 @@ The Wall is Down is a 1-4 player game of geopolitics inspired in Twilight Strugg
 * TWID-SOA is the REST API for the game. It's still under development but it's mostly functional (more info below).
 
 The game is provided under a CC-BY license (see the rules for more info about that)
-Initially the game was discussed in this [BGG forum][https://boardgamegeek.com/thread/2842384/wall-down-1989-2014-ts-game-4-players]
+Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/thread/2842384/wall-down-1989-2014-ts-game-4-players)
 
 
 
 ### BUNDLE RW
 The contents are:
 * _board.svg_: a file edited with Inkscape but allegedly editable with any Photosop-like program. There's a boardExtra.svg with tokens for card texts that remain in play, UE expansions, veto/ahead tokens and the like.
-* _cards.ods_: a spreadsheet with the card texts and some other sheets with statistics on the cards. I use the first sheet, exported as csv, with [Hccd card designer][https://github.com/vaemendis/hccd], to generate the pdf with the cards.
+* _cards.ods_: a spreadsheet with the card texts and some other sheets with statistics on the cards. I use the first sheet, exported as csv, with [Hccd card designer](https://github.com/vaemendis/hccd), to generate the pdf with the cards.
 * _rules.docx_:, a text document with the rules.
 ### REST API
 
