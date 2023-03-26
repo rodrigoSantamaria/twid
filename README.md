@@ -16,12 +16,14 @@ The game is provided under a CC-BY license (see the rules for more info about th
 Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/thread/2842384/wall-down-1989-2014-ts-game-4-players)
 
 
+[Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.]([https://myoctocat.com/assets/images/base-octocat.svg](https://cf.geekdo-images.com/R6bD6NbnSrdbohP-IjG_lA__imagepage/img/5rqR31ez6eKelOG7JhKT9BW3XTQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6874852.jpg))
 
 ### BUNDLE RW
 The contents are:
 * _board.svg_: a file edited with Inkscape but allegedly editable with any Photoshop-like program. There's a boardExtra.svg with tokens for card texts that remain in play, UE expansions, veto/ahead tokens and the like.
 * _cards.ods_: a spreadsheet with the card texts and some other sheets with statistics on the cards. I use the first sheet, exported as csv, with [Hccd card designer](https://github.com/vaemendis/hccd), to generate the pdf with the cards.
 * _rules.docx_:, a text document with the rules.
+
 ### REST API
 
 In order to run the server, use:
@@ -29,4 +31,4 @@ In order to run the server, use:
 sudo docker-compose -f docker-compose.yml up --build --remove-orphans --force-recreate
 ```
 
-The folder frontend contains a script test.py that emulates all the API endpoint calls for a full game. There's also a Swagger documentation at https://localhost/docs after deploying the docker container.
+The folder frontend contains a script test.py that emulates all the API endpoint calls for a full game. There's also a Swagger documentation at https://localhost/docs after deploying the docker container. There is no graphical frontend yet.
