@@ -1,0 +1,124 @@
+.card {
+    margin: 0.2mm;
+    border-style: solid;
+    border-width: 0.2mm;
+    border-color: black;
+    border-radius: 3mm;
+    width: 63mm;/*63*/
+    height: 88mm;/*88*/
+	/* background-color: {{background}}; 
+	 background-image: url("images/xxx"); */
+}
+
+.avatar {
+    float: left;
+    margin: 1.1mm;
+    width: 24mm;
+    height: 24mm;
+}
+
+
+
+.name {
+    margin-top: 2mm;
+    margin-right: 1mm;
+    margin-left: 8mm;
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 10.5pt;
+    height: 5mm;
+	float: center;
+	width: 88%;
+}
+
+.type {
+    margin-top: 1mm;
+    margin-right: 1mm;
+    margin-left: 1mm;
+    font-family: "Arial";
+    font-size: 9pt;
+    height: 2mm;
+	float: right;
+	width: 88%;
+}
+
+.faction {
+	margin-top: 2mm;
+	margin-right: 2mm;
+    font-family: "Arial";
+    font-size: 8pt;
+	float: left;
+}
+
+.count {
+	margin-top: 1mm;
+	margin-right: 3mm;
+    font-family: "Arial";
+    font-size: 6pt;
+	float: right;
+}
+
+
+.epoch {
+    font-family: "Arial";
+	font-weight: bold;
+    font-size: 6pt;
+	width: 20%;
+	float: center;
+	color: #662222;
+	
+}
+
+.point {
+    margin-top: .5mm;
+    margin-right: 1mm;
+    margin-left: 1mm;
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 22pt;
+    height: 5mm;
+	float: left;
+	width: 6%;
+}
+
+.text {
+    float:left;
+    font-family: "Arial";
+    font-size: 10pt;    /*antes 10*/
+    margin-left: 1.5mm;
+    margin-right: 1.5mm;
+    margin-top: 1mm;
+    padding: 2mm;
+    background-color: #EEEEEE;
+    border-radius: 3mm;
+    height: 30mm;/*medida original 30*/
+    width: 56mm;/*medida original 56*/
+}
+
+
+.image{
+	margin-top: 2mm;
+	width:100%; 
+	height:40%;
+}
+
+
+.icon {
+    width: 7mm;
+    height: 7mm;
+    vertical-align: text-bottom;
+    margin: 1mm;
+}
+
+.iconcell {
+    padding: 0.5mm;
+    margin-right: 1mm;
+}
+
+.carac {
+    float: right;
+    margin: 3mm;
+    font-family: "Arial";
+    font-weight: bold;
+    font-size: 16pt;
+}
