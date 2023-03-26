@@ -16,6 +16,7 @@ The game is provided under a CC-BY license (see the rules for more info about th
 Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/thread/2842384/wall-down-1989-2014-ts-game-4-players)
 
 Some screenshots of the prototype:
+
 ![S1](https://cf.geekdo-images.com/R6bD6NbnSrdbohP-IjG_lA__medium/img/Ygj1LYRXq6Z9CFk-iVFdfwsFrc8=/fit-in/500x500/filters:no_upscale():strip_icc()/pic6874852.jpg)
 ![S2](https://cf.geekdo-images.com/mNGYFWINaahDzpUHnYullw__medium/img/J0V7TKdkDbKWnWKFE_OQ9L09ahU=/fit-in/500x500/filters:no_upscale():strip_icc()/pic6874857.jpg)
 
