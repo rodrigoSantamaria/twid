@@ -17,6 +17,8 @@ The game is provided under a CC-BY license (see the rules for more info about th
 ### REST API
 
 In order to run the server, use:
+```
 sudo docker-compose -f docker-compose.yml up --build --remove-orphans --force-recreate
+```
 
 The folder frontend contains a script test.py that emulates all the API endpoint calls for a full game. There's also a Swagger documentation at https://localhost/docs after deploying the docker container.
