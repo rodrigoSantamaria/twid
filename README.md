@@ -1,4 +1,4 @@
-# The Wall is Down: 1989-2014
+## The Wall is Down: 1989-2014
 1989. Cold war is over. The Berlin wall is down. URSS breaks into pieces and USA
 becomes the global superpower. However, the world is not totally polarized. New
 powers acquire nuclear weapons: France, UK, Israel, India, Pakistan. China adopts a
@@ -14,7 +14,8 @@ The Wall is Down is a 1-4 player game of geopolitics inspired in Twilight Strugg
 
 The game is provided under a CC-BY license (see the rules for more info about that)
 
-#REST API
+# REST API
+
 In order to run the server, use:
 sudo docker-compose -f docker-compose.yml up --build --remove-orphans --force-recreate
 
