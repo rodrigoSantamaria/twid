@@ -15,8 +15,9 @@ The Wall is Down is a 1-4 player game of geopolitics inspired in Twilight Strugg
 The game is provided under a CC-BY license (see the rules for more info about that)
 Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/thread/2842384/wall-down-1989-2014-ts-game-4-players)
 
-
+Some screenshots of the prototype:
 ![Screenshot of TWID.](https://cf.geekdo-images.com/R6bD6NbnSrdbohP-IjG_lA__imagepage/img/5rqR31ez6eKelOG7JhKT9BW3XTQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6874852.jpg)
+!(https://cf.geekdo-images.com/mNGYFWINaahDzpUHnYullw__medium/img/J0V7TKdkDbKWnWKFE_OQ9L09ahU=/fit-in/500x500/filters:no_upscale():strip_icc()/pic6874857.jpg)
 
 ### BUNDLE RW
 The contents are:
