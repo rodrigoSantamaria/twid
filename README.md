@@ -17,7 +17,7 @@ Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/t
 
 Some screenshots of the prototype:
 ![Screenshot of TWID.](https://cf.geekdo-images.com/R6bD6NbnSrdbohP-IjG_lA__imagepage/img/5rqR31ez6eKelOG7JhKT9BW3XTQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6874852.jpg)
-!(https://cf.geekdo-images.com/mNGYFWINaahDzpUHnYullw__medium/img/J0V7TKdkDbKWnWKFE_OQ9L09ahU=/fit-in/500x500/filters:no_upscale():strip_icc()/pic6874857.jpg)
+![S2](https://cf.geekdo-images.com/mNGYFWINaahDzpUHnYullw__medium/img/J0V7TKdkDbKWnWKFE_OQ9L09ahU=/fit-in/500x500/filters:no_upscale():strip_icc()/pic6874857.jpg)
 
 ### BUNDLE RW
 The contents are:
