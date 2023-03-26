@@ -16,7 +16,7 @@ The game is provided under a CC-BY license (see the rules for more info about th
 Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/thread/2842384/wall-down-1989-2014-ts-game-4-players)
 
 
-[Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://cf.geekdo-images.com/R6bD6NbnSrdbohP-IjG_lA__imagepage/img/5rqR31ez6eKelOG7JhKT9BW3XTQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6874852.jpg)
+![Screenshot of TWID.](https://cf.geekdo-images.com/R6bD6NbnSrdbohP-IjG_lA__imagepage/img/5rqR31ez6eKelOG7JhKT9BW3XTQ=/fit-in/900x600/filters:no_upscale():strip_icc()/pic6874852.jpg)
 
 ### BUNDLE RW
 The contents are:
