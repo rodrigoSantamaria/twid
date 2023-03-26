@@ -19,7 +19,7 @@ Initially the game was discussed in this [BGG forum](https://boardgamegeek.com/t
 
 ### BUNDLE RW
 The contents are:
-* _board.svg_: a file edited with Inkscape but allegedly editable with any Photosop-like program. There's a boardExtra.svg with tokens for card texts that remain in play, UE expansions, veto/ahead tokens and the like.
+* _board.svg_: a file edited with Inkscape but allegedly editable with any Photoshop-like program. There's a boardExtra.svg with tokens for card texts that remain in play, UE expansions, veto/ahead tokens and the like.
 * _cards.ods_: a spreadsheet with the card texts and some other sheets with statistics on the cards. I use the first sheet, exported as csv, with [Hccd card designer](https://github.com/vaemendis/hccd), to generate the pdf with the cards.
 * _rules.docx_:, a text document with the rules.
 ### REST API
