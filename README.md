@@ -28,6 +28,7 @@ The contents are:
 
 ### REST API
 
+The REST API was originally designed by Javier Vidal Ruano [here](https://github.com/javiervidrua/TWID-SOA). This is an updated version that includes automatization of most of the cards, bug fixes and a frontend tester for a full game.
 In order to run the server, use:
 ```
 sudo docker-compose -f docker-compose.yml up --build --remove-orphans --force-recreate
